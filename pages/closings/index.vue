@@ -9,6 +9,7 @@
           type="month"
           id="month"
           name="month"
+          class="filter"
           :value="new Date().toISOString().slice(0, 7)"
           v-on:change="handleMonthFilterChange"
         />
@@ -43,57 +44,6 @@
     </div>
   </BaseLayout>
 </template>
-
-<style scoped>
-.heading-toolbar-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.heading-button-bar {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1rem;
-}
-
-.heading-button-bar a {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #ccc;
-  cursor: pointer;
-  color: #000;
-  text-decoration: none;
-}
-
-input[type="month"] {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table .numeric {
-  text-align: right;
-}
-
-table thead tr th {
-  padding: 0.5rem;
-  border-bottom: 1px solid #ccc;
-}
-
-table tbody tr td {
-  padding: 0.5rem;
-  border-bottom: 1px solid #ccc;
-}
-</style>
 
 <script setup lang="ts">
 import BaseLayout from "../../layouts/BaseLayout.vue";

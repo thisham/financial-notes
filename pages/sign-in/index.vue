@@ -19,32 +19,6 @@
   </BaseLayout>
 </template>
 
-<style scoped>
-.input-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-}
-
-.input-group label {
-  margin-bottom: 0.5rem;
-}
-
-.input-group input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.input-group button {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #ccc;
-  cursor: pointer;
-}
-</style>
-
 <script setup lang="ts">
 import BaseLayout from "../../layouts/BaseLayout.vue";
 
