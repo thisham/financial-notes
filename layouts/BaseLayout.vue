@@ -1,6 +1,8 @@
 <template>
   <div class="base">
-    <slot />
+    <div class="base-wrapper">
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -13,10 +15,17 @@
 }
 
 .base {
+  display: flex;
+  justify-content: center;
   width: 100vw;
   min-height: 100vh;
   background-color: #f5f5f5;
   padding: 1rem;
+}
+
+.base-wrapper {
+  width: 100%;
+  max-width: 786px;
 }
 
 h1 {
