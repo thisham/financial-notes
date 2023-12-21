@@ -6,7 +6,7 @@
       <form action="">
         <div class="input-group">
           <label for="date">Date</label>
-          <input type="date" id="date" name="date" />
+          <input type="date" id="date" name="date" v-model="submission.date" />
         </div>
         <!-- loop input for transaction name, nominal, note, debit/credit select using table -->
         <!-- using table -->
