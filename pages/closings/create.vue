@@ -28,7 +28,22 @@
                 :key="index"
               >
                 <td>
-                  <input type="text" class="item" v-model="transaction.name" />
+                  <select
+                    :class="`item ${
+                      transaction.name === '_create' ? 'mb-1' : ''
+                    }`"
+                    v-model="transaction.name"
+                  >
+                    <option value="">Select one</option>
+                    <option value="_create">+ Create New</option>
+                  </select>
+
+                  <input
+                    v-show="transaction.name === '_create'"
+                    type="text"
+                    class="item"
+                    v-model="transaction.new_name"
+                  />
                 </td>
                 <td>
                   <input
@@ -104,6 +119,7 @@ const submission = ref({
   transactions: [
     {
       name: "",
+      new_name: "",
       nominal: 0,
       note: "",
       type: "debit",
@@ -114,6 +130,7 @@ const submission = ref({
 const addTransaction = () => {
   submission.value.transactions.push({
     name: "",
+    new_name: "",
     nominal: 0,
     note: "",
     type: "debit",
