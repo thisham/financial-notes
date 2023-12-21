@@ -28,7 +28,22 @@
                 :key="index"
               >
                 <td>
-                  <input type="text" class="item" v-model="transaction.name" />
+                  <select
+                    :class="`item ${
+                      transaction.name === '_create' ? 'mb-1' : ''
+                    }`"
+                    v-model="transaction.name"
+                  >
+                    <option value="">Select one</option>
+                    <option value="_create">+ Create New</option>
+                  </select>
+
+                  <input
+                    v-show="transaction.name === '_create'"
+                    type="text"
+                    class="item"
+                    v-model="transaction.new_name"
+                  />
                 </td>
                 <td>
                   <input
@@ -101,7 +116,7 @@ import { ref } from "vue";
 import BaseLayout from "../../../layouts/BaseLayout.vue";
 import { useRouter } from "vue-router";
 
-const submission = ref({
+const initial = {
   date: "2021-01-01",
   transactions: [
     {
@@ -147,12 +162,18 @@ const submission = ref({
       note: "test",
     },
   ],
+};
+
+const submission = ref({
+  ...initial,
+  transactions: initial.transactions.map((item) => ({ ...item, new_name: "" })),
 });
 
 const addTransaction = () => {
   submission.value.transactions.push({
     id: "",
     name: "",
+    new_name: "",
     nominal: 0,
     note: "",
     type: "debit",
